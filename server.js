@@ -30,8 +30,8 @@ app.use((req, res) => {
 
 app.use(errorHandler);
 
-(async () => {
-  await connectDB();
-  const PORT = process.env.PORT || 3000;
-  app.listen(PORT, () => console.log(`Server running at http://localhost:${PORT}`));
-})();
+connectDB().then(() => {
+  app.listen(3000, () => {
+    console.log("Server running at http://localhost:3000");
+  });
+});
