@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>BookHub — Home</title>
+  <link rel="stylesheet" href="styles.css"/>
+</head>
+<body>
+  <header class="header">
+    <div class="container header__row">
+      <a class="brand" href="index.html">BookHub</a>
+
+      <form id="globalSearch" class="search">
+        <input id="globalQuery" type="search" placeholder="Search by title or author…" autocomplete="off">
+        <button class="icon-btn" type="submit" title="Search">🔎</button>
+      </form>
+
+      <button id="themeToggle" class="icon-btn" title="Theme">🌓</button>
+      <button id="menuToggle" class="icon-btn menu-toggle" aria-label="Menu">☰</button>
+
+      <a class="icon-btn" href="auth.html" id="authLink" title="Login / Register">👤</a>
+    </div>
+  </header>
+
+  <nav id="mobileMenu" class="mobile-menu">
+    <a href="index.html">Home</a>
+    <a href="auth.html" id="authLinkMobile">Login / Register</a>
+  </nav>
+
+  <main class="container container--wide main grid grid-2">
+    <aside class="card p-3">
+      <h3 style="margin:0 0 10px">Filters</h3>
+
+      <div style="margin-bottom:10px">
+        <label class="meta">Sort by</label>
+        <select id="sort" class="select">
+          <option value="new">Newest</option>
+          <option value="az">A → Z (title)</option>
+          <option value="rating">Rating (high → low)</option>
+          <option value="reviews">Reviews (many → few)</option>
+          <option value="price">Price (low → high)</option>
+        </select>
+      </div>
+
+      <div style="margin-bottom:10px">
+        <label class="meta">Min rating</label>
+        <input id="minRating" type="number" min="0" max="5" step="0.1" class="input" value="0">
+      </div>
+
+      <button id="reset" class="btn btn-light" style="width:100%">Reset</button>
+
+      <hr class="hr" style="margin:16px 0">
+
+      <div id="adminBox" style="display:none">
+        <div class="row" style="justify-content:space-between; align-items:center">
+          <h3 style="margin:0">Admin</h3>
+          <span class="badge" id="roleBadge">admin</span>
+        </div>
+
+        <div class="meta" style="margin-top:6px">Create a new book (POST)</div>
+
+        <form id="createBookForm" class="grid" style="gap:8px; margin-top:10px">
+          <input class="input" id="bTitle" placeholder="Title" required>
+          <input class="input" id="bAuthor" placeholder="Author" required>
+          <input class="input" id="bPrice" type="number" min="0" step="0.01" placeholder="Price" required>
+          <input class="input" id="bRating" type="number" min="0" max="5" step="0.1" placeholder="Rating (0..5)" required>
+          <input class="input" id="bReviews" type="number" min="0" step="1" placeholder="Reviews count" required>
+          <textarea class="input input--area" id="bDesc" rows="4" placeholder="Description" required></textarea>
+          <button class="btn btn-primary" type="submit">Create book</button>
+          <div class="meta" id="adminMsg"></div>
+        </form>
+      </div>
+    </aside>
+
+    <section>
+      <div class="row" style="justify-content:space-between; align-items:center">
+        <h2 style="margin:0">Books</h2>
+        <div class="meta" id="sessionInfo"></div>
+      </div>
+      <div id="hint" class="meta" style="margin-top:6px"></div>
+      <div id="list" class="list" style="margin-top:12px"></div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer__row">
+      <div>© 2026 BookHub</div>
+      <nav class="footer__nav">
+        <a href="index.html">Home</a>
+        <a href="auth.html">Auth</a>
+      </nav>
+      <div class="footer__contact">Web Tech 2 — Assignment 4</div>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+  <script src="home.js"></script>
+</body>
+</html>

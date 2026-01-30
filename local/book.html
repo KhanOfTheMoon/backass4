@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>BookHub — Book</title>
+  <link rel="stylesheet" href="styles.css"/>
+</head>
+<body>
+  <header class="header">
+    <div class="container header__row">
+      <a class="brand" href="index.html">BookHub</a>
+
+      <form id="globalSearch" class="search">
+        <input id="globalQuery" type="search" placeholder="Search…" autocomplete="off">
+        <button class="icon-btn" type="submit" title="Search">🔎</button>
+      </form>
+
+      <button id="themeToggle" class="icon-btn" title="Theme">🌓</button>
+      <button id="menuToggle" class="icon-btn menu-toggle" aria-label="Menu">☰</button>
+      <a class="icon-btn" href="auth.html" id="authLink" title="Login / Register">👤</a>
+    </div>
+  </header>
+
+  <nav id="mobileMenu" class="mobile-menu">
+    <a href="index.html">Home</a>
+    <a href="auth.html" id="authLinkMobile">Login / Register</a>
+  </nav>
+
+  <main class="container container--wide main">
+    <div id="bookRoot"></div>
+
+    <section class="grid grid-2" style="margin-top:16px">
+      <div class="card p-3">
+        <h3 style="margin:0 0 10px">Reviews</h3>
+        <div id="reviewsList" class="grid" style="gap:10px"></div>
+      </div>
+
+      <div class="card p-3" id="adminReviewBox" style="display:none">
+        <div class="row" style="justify-content:space-between; align-items:center">
+          <h3 style="margin:0">Admin: Add review (POST)</h3>
+          <span class="badge">admin</span>
+        </div>
+
+        <form id="createReviewForm" class="grid" style="gap:8px; margin-top:10px">
+          <input class="input" id="rName" placeholder="Reviewer name" required>
+          <input class="input" id="rStars" type="number" min="1" max="5" step="1" placeholder="Stars (1..5)" required>
+          <textarea class="input input--area" id="rText" rows="4" placeholder="Review text" required></textarea>
+          <button class="btn btn-primary" type="submit">Create review</button>
+          <div class="meta" id="reviewMsg"></div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer__row">
+      <div>© 2026 BookHub</div>
+      <nav class="footer__nav">
+        <a href="index.html">Home</a>
+        <a href="auth.html">Auth</a>
+      </nav>
+      <div class="footer__contact">Web Tech 2 — Assignment 4</div>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+  <script src="book.js"></script>
+</body>
+</html>
