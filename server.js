@@ -2,10 +2,10 @@ const express = require("express");
 const path = require("path");
 require("dotenv").config();
 
-const connectDB = require("./config/db");
-const authRoutes = require("./routes/authRoutes");
-const bookRoutes = require("./routes/bookRoutes");
-const reviewRoutes = require("./routes/reviewRoutes");
+const connectDB = require("./db");
+const authRoutes = require("./routes/authRoute");
+const bookRoutes = require("./routes/bookRoute");
+const reviewRoutes = require("./routes/reviewRoute");
 const errorHandler = require("./middleware/errorHandler");
 
 const app = express();
